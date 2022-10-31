@@ -1,6 +1,7 @@
 // expose.js
 
 window.addEventListener('DOMContentLoaded', init);
+const jsConfetti = new JSConfetti();
 
 function init() {
   // Select horn from drop down menu
@@ -47,25 +48,29 @@ function init() {
   // Play sound when button is presed and confettis
   let playButton = document.querySelector('button');
 
+  const audio = document.querySelector('.hidden');
   playButton.addEventListener('click', (event) => {
-    let audio = document.querySelector('.hidden');
+
     // no sound is played if there is no 
     if (audio.src == '') {
       return
     }
 
+    audio.play();
     // can't figure out another way to play audio
-    const sound = new Audio(audio.src);
-    sound.volume = audio.volume;
-    sound.play();
+    // const sound = new Audio(audio.src);
+    // sound.volume = audio.volume;
+    //sound.play();
 
 
-    // Confettis
-    const jsConfetti = new JSConfetti();
-    jsConfetti.addConfetti({
-      confettiRadius: 20,
-      confettiNumber: 500,
-    });
+    // Confettis if it's party horn
+    if (dropDown.value === 'party-horn') {
+      jsConfetti.addConfetti({
+        confettiRadius: 20,
+        confettiNumber: 500,
+      });
+    }
+
 
   })
 
