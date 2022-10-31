@@ -55,7 +55,7 @@ function init() {
     if (audio.src == '') {
       return
     }
-
+    audio.load();
     audio.play();
     // can't figure out another way to play audio
     // const sound = new Audio(audio.src);
