@@ -23,7 +23,7 @@ function init() {
   // Change volume from slider
   let volSlider = document.getElementById('volume');
 
-  volSlider.addEventListener('change', (event) => {
+  volSlider.addEventListener('input', (event) => {
 
     let vol = volSlider.value;
     let icon = document.querySelector('#volume-controls img')
@@ -42,8 +42,6 @@ function init() {
     // set corresponding volume of the audio element
     let audio = document.querySelector('.hidden');
     audio.volume = vol / 100;
-    console.log(audio);
-    console.log(audio.volume);
   })
 
   // Play sound when button is presed and confettis
